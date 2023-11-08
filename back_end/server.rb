@@ -2,6 +2,10 @@ require "bundler"; Bundler.require
 require "sinatra"
 require "net/http"
 require "json"
+require "sinatra-cors" # Para permitir peticiones en el proyecto
+
+set :allow_origin, "*"
+set :allow_method, "GET"
 
 get "/weather" do
   # la respuesta que daremos sera en formato json
