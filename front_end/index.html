@@ -14,6 +14,37 @@
     <input type="text" placeholder="Mi ubicación es..." class="form-control" id="location">
     <button type="button" class="btn btn-info rounded-pill px-3" onclick="fetch_weather()">Buscar</button>
   </div>
+
+  <div id="area_resultado">
+    <h1>Resultados</h1>
+    <b><span id="mensaje_resultado"></span></b>
+    <table class="table">
+      <tr>
+        <td>Ciudad:</td>
+        <td id="city"></td>
+      </tr>
+        <td>Región:</td>
+        <td id="region"></td>
+      </tr>
+      </tr>
+        <td>Hora:</td>
+        <td id="hour"></td>
+      </tr>
+        <td>Temperatura:</td>
+        <td id="temperature"></td>
+      </tr>
+        <td>Humedad:</td>
+        <td id="humidity"></td>
+      </tr>
+        <td>Sensación:</td>
+        <td id="feelslike"></td>
+      </tr>
+      <tr>
+        <td>Descripción:</td>
+        <td id="description"></td>
+      </tr>
+    </table>
+  </div>
 </body>
 
 <script>
@@ -24,6 +55,14 @@
       ).then((response) => {
       response.json().then((data) => {
         console.log(data)
+        document.getElementById("mensaje_resultsdo").innerHTML = data.error.info
+        document.getElementById("city").innerHTML = data.location.name
+        document.getElementById("region").innerHTML = data.location.region
+        document.getElementById("hour").innerHTML = data.location.localtime
+        document.getElementById("temperature").innerHTML = data.current.temperature
+        document.getElementById("humidity").innerHTML = data.current.homidity
+        document.getElementById("feelslike").innerHTML = data.current.feelslike
+        document.getElementById("description").innerHTML = data.current.weather_descriptions[0]
       })
     })
   }
