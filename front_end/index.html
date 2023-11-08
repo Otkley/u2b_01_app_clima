@@ -11,8 +11,21 @@
   <h2>App del clima</h2>
   <div id="formulario">
     <h3>Ingresa tu ubicación</h3>
-    <input type="text" placeholder="Mi ubicación es..." class="form-control">
-    <button type="button" class="btn btn-info rounded-pill px-3">Buscar</button>
+    <input type="text" placeholder="Mi ubicación es..." class="form-control" id="location">
+    <button type="button" class="btn btn-info rounded-pill px-3" onclick="fetch_weather()">Buscar</button>
   </div>
 </body>
+
+<script>
+  function fetch_weather(){
+    user_location = document.getElementById("location").value
+    // alert(user_location)
+    fetch(`http://localhost:4567/weather?location=${user_location}` // Puerto de sinatra por defecto
+      ).then((response) => {
+      response.json().then((data) => {
+        console.log(data)
+      })
+    })
+  }
+</script>
 </html>
