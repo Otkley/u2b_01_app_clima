@@ -1,6 +1,6 @@
-source "https://rubygems.org"
+source 'http://rubygems.org'
 
-gem "rake"
-gem "sinatra", require: "sinatra"
-gem "sinatra-cors"
-gem "puma"
+gem 'puma'
+gem 'rake'
+gem 'sinatra'
+gem 'sinatra-cross_origin'
