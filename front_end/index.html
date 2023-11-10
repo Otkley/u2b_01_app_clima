@@ -49,6 +49,7 @@
 
 <script>
   function fetch_weather(){
+    console.log("Intentando...")
     user_location = document.getElementById("location").value
     // alert(user_location)
     fetch(`http://localhost:4567/weather?location=${user_location}` // Puerto de sinatra por defecto
